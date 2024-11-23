@@ -10,7 +10,7 @@ public class DatabaseStorage implements Storage {
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:storage.db");
             createTableIfNotExists();
-            initMaxId();
+            initNextId();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -46,7 +46,7 @@ public class DatabaseStorage implements Storage {
         return null;
     }
 
-    private void initMaxId() throws SQLException {
+    private void initNextId() throws SQLException {
         String maxIdSQL = "SELECT MAX(id) FROM storage";
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(maxIdSQL);
