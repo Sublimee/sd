@@ -1,6 +1,5 @@
 package task_3;
 
-import jdk.jfr.Description;
 import org.example.task_3.AverageCalculator;
 import org.junit.jupiter.api.Test;
 
